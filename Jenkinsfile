@@ -27,12 +27,12 @@ pipeline {
                 
             }
         }
-        stage('Deploy') {
-            when {
-                branch 'production'
-            }
+        stage('Docker build') {
             steps {
-                sh "echo this is deploy"
+                sh """
+                docker build -t riyacham/backend:${appVersion}
+                docker images
+                """
             }
         }
     
