@@ -30,7 +30,7 @@ pipeline {
         stage('Docker build') {
             steps {
                 sh """
-                docker build -t riyacham/backend:${appVersion}
+                docker build -t riyacham/backend:${appVersion} .
                 docker images
                 """
             }
